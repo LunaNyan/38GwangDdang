@@ -142,3 +142,16 @@ def interpret_card(card):
         card_type = " 열끗"
     return str(card[0]) + "월" + card_type
 
+def battle(a, b):
+    #!! EXPERIMENTAL !!
+    if (a == -1 and b <= 24) or (a <= 24 and b == -1):
+        res = "멍구사 재경기"
+    elif (a == -2 and b <= 15) or (a <= 15 and b == -2):
+        res = "구사 재경기"
+    elif a == b or (((-1 in [a, b] or -2 in [a, b]) and 3 in [a, b]) or (-3 in [a, b] and 1 in [a, b]) or (-4 in [a, b] and 0 in [a, b])):
+        res = "무승부 재경기"
+    elif (a == -3 and (b == 26 or b == 27)) or a > b:
+        res = "A 승"
+    elif (b == -3 and (a == 26 or a == 27)) or a < b:
+        res = "B 승"
+    return res
